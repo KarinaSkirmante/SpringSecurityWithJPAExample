@@ -1,0 +1,40 @@
+<html>
+<body xmlns:th="http://www.thymeleaf.org">
+
+	<form action="#" th:action="@{/customer/buy}" th:object="${customer}"
+		method="post">
+
+	<table>
+	
+	
+	<tr>
+		<td> <input type="text" th:field="*{name}"> </td>
+		<td th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
+	</tr>
+	
+	<tr>
+		<td> <input type="text" th:field="*{surname}"> </td>
+		<td th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></td>
+	</tr>
+	
+	<tr>
+		<td> <input type="text" th:field="*{password}"> </td>
+		<td th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></td>
+	</tr>
+	<tr>
+				<td>Produkti</td>
+				<td>
+					<select multiple="multiple" th:field="*{allProducts}">
+						<option th:each="a : ${allProducts}" th:value="${a.getId()}" th:text="${a.getTitle() + ' ' + a.getPrice()}"></option>
+					</select>
+				
+					
+				</td>
+			</tr>
+	
+	</table>
+		<input type="submit">
+	</form>
+</body>
+
+</html>

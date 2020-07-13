@@ -1,0 +1,15 @@
+<html>
+<body xmlns:th="http://www.thymeleaf.org">
+
+	<form action="#" th:action="@{/product/update}" th:object="${product}"
+		method="post">
+
+		<input type="text" th:value="${title}" th:field="*{title}" readonly> 
+		<input type="text" th:value="${quantity}" th:field="*{quantity}">
+		<input type="text" th:value="${price}"  th:field="*{price}">
+		<input type="text" th:value="${description}" th:field="*{description}"> 
+			<input type="submit">
+	</form>
+</body>
+
+</html>
